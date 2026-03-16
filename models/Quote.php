@@ -4,25 +4,15 @@
         private $conn;
         private $table = 'quotes';
 
-        // Authors Properties
+        // Quote Properties
         public $id;
-        public $author;
+        public $quote
+        public $author_id;
+        public $category_id;
 
         // Constructor
         public function __construct($db) {
             $this->conn = $db;
-        }
-
-        // Get Quote
-        public function create() {
-            // Create query
-            $query = 'SELECT
-            '
-        }
-
-        // Delete Quote
-        public function delete() {
-
         }
 
         // Read Quote
@@ -35,8 +25,20 @@
 
         }
 
+        // Create Quote
+        public function create() {
+            // Create query
+            $query = 'SELECT
+            '
+        }
+
         // Update Quote
         public function update() {
+
+        }
+
+        // Delete Quote
+        public function delete() {
 
         }
     }

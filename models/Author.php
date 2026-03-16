@@ -17,7 +17,7 @@
         public function read() {
             // Create query
             $query = 'SELECT
-                author
+                author,
                 id
             FROM
                 ' . $this->table . ' authors
@@ -37,7 +37,7 @@
         public function read_single() {
             // Create query
             $query = 'SELECT
-                author
+                author,
                 id
             FROM
                 ' . $this->table . ' authors
@@ -60,38 +60,30 @@
         public function create() {
             // Create query
             $query = 'INSERT INTO ' . $this->table . '
-                SET
-                    author = :author,
-                    id = :id';
+                (author) VALUES (:author)';
 
             // Prepare statement
             $stmt = $this->conn->prepare($query);
 
             // Clean data
             $this->author = htmlspecialchars(strip_tags($this->author));
-            $this->id = htmlspecialchars(strip_tags($this->id));
 
             // Bind data
             $stmt->bindParam(':author', $this->author);
-            $stmt->bindParam(':id', $this->id);
 
             // Execute query
             if($stmt->execute()) {
                 return true;
             }
-            // Print error if something goes wrong
-            printf('Error: %s.\n', $stmt->error);
-
             return false;
         }
 
         // Update Author
         public function update() {
             // Create query
-            $query = 'INSERT INTO ' . $this->table . '
-                SET
-                    author = :author,
-                    id = :id
+            $query = 'UPDATE ' . $this->table . '
+                SET 
+                    author = :author
                 WHERE
                     id = :id';
 
@@ -110,9 +102,6 @@
             if($stmt->execute()) {
                 return true;
             }
-            // Print error if something goes wrong
-            printf('Error: %s.\n', $stmt->error);
-
             return false;
         }
         
@@ -134,9 +123,6 @@
             if($stmt->execute()) {
                 return true;
             }
-            // Print error if something goes wrong
-            printf('Error: %s.\n', $stmt->error);
-
             return false;
         }
     }
