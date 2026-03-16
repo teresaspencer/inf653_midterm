@@ -39,6 +39,22 @@
 
         // Delete Quote
         public function delete() {
+            // Create query
+            $query = 'DELETE FROM ' . $this->table . ' WHERE id = :id';
 
+            // Prepare statement
+            $stmt = $this->conn->prepare($query);
+
+            // Clean data
+            $this->id = htmlspecialchars(strip_tags($this->id));
+
+            // Bind data
+            $stmt->bindParam(':id', $this->id);
+
+            // Execute query
+            if($stmt->execute()) {
+                return true;
+            }
+            return false;
         }
     }

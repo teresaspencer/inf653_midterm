@@ -8,3 +8,17 @@
         header('Access-Control-Allow-Headers: Origin, Accept, Content-Type, X-Requested-With');
         exit();
     }
+
+    if ($method === 'GET') {
+        if (isset($_GET['id'])) {
+            include 'read_single.php';
+        } else {
+            include 'read.php';
+        }
+    } elseif ($method === 'POST') {
+        include 'create.php';
+    } elseif ($method === 'PUT') {
+        include 'update.php';
+    } elseif ($method === 'DELETE') {
+        include 'delete.php';   
+    }
