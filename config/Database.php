@@ -4,7 +4,7 @@
         private $host = 'localhost';
         private $db_name = 'quotesdb';
         private $username = 'postgres';
-        private $password = '123456';
+        private $password = 'postgres';
         private $conn;
 
         // DB Connect

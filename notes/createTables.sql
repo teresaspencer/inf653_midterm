@@ -1,0 +1,16 @@
+CREATE TABLE authors (
+    id SERIAL PRIMARY KEY,
+    author VARCHAR(50) NOT NULL
+);
+
+CREATE TABLE categories (
+    id SERIAL PRIMARY KEY,
+    category VARCHAR(20) NOT NULL
+);
+
+CREATE TABLE quotes (
+    id SERIAL PRIMARY KEY,
+    quote TEXT NOT NULL,
+    author_id INT REFERENCES authors(id),
+    category_id INT REFERENCES categories(id)
+);
