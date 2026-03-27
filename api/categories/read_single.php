@@ -32,5 +32,5 @@
         // Make JSON
         echo json_encode($category_arr);
     } else {
-        echo json_encode(array('message' => 'No Category Found'));
+        echo json_encode(array('message' => 'category_id Not Found'));
     }

@@ -15,13 +15,21 @@
 
     // Get raw data
     $data = json_decode(file_get_contents('php://input'));
-    $category->category = $data->category;
+
+    if(!isset($data->id) || !isset($data->category) || empty($data->category)) {
+        echo json_encode('message' => 'Missing Required Parameters');
+        exit();
+    }
+
     $category->id = $data->id;
+    $category->category = $data->category;
+    
 
     // Update Category
     if($category->update()) {
         echo json_encode(
-            array('message' => 'Category Updated')
+            array('id' => $data->id,
+            'category' => $data->category)
         );
     } else {
         echo json_encode(

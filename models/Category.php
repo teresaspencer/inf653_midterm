@@ -60,7 +60,7 @@
         public function create() {
             // Create query
             $query = 'INSERT INTO ' . $this->table . '
-                (category) VALUES (:category)';
+                (category) VALUES (:category) RETURNING id';
 
             // Prepare statement
             $stmt = $this->conn->prepare($query);
@@ -70,12 +70,10 @@
 
             // Bind data
             $stmt->bindParam(':category', $this->category);
+            $stmt->execute();
 
-            // Execute query
-            if($stmt->execute()) {
-                return true;
-            }
-            return false;
+            $row = $stmt->fetch(PDO::FETCH_ASSOC);
+            return $row['id'];
         }
 
         // Update Category
