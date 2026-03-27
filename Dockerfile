@@ -12,6 +12,8 @@ WORKDIR /var/www/html
 # Copy the current directory contents into the container at /var/www/html
 COPY . /var/www/html
 
+RUN ls -la /var/www/html/
+
 # Install any dependencies your PHP application may need
 # For example, if you're using Composer for dependency management:
 # RUN apt-get update && apt-get install -y \
