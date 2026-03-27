@@ -1,4 +1,5 @@
 RewriteEngine On
+RewriteBase /
 RewriteRule ^api/authors$ /api/authors/index.php [L,QSA]
 RewriteRule ^api/categories$ /api/categories/index.php [L,QSA]
 RewriteRule ^api/quotes$ /api/quotes/index.php [L,QSA]
