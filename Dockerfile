@@ -32,7 +32,8 @@ COPY apache.conf /etc/apache2/sites-available/000-default.conf
 RUN a2enmod rewrite
 
 # Disable conflicting MPM modules and enable prefork
-RUN a2dismod mpm_event mpm_worker && a2enmod mpm_prefork
+RUN a2dismod mpm_event || true
+RUN a2enmod mpm_prefork
 
 # Suprisingly, I deployed to Render without this!
 # Set Apache to bind to IP address 0.0.0.0
