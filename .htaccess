@@ -1,11 +1,4 @@
-
 RewriteEngine On
-
-RewriteCond %{REQUEST_URI} ^/api/
-RewriteCond %{REQUEST_FILENAME} !-f
-RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule ^api/(authors|quotes|categories)$ /api/$1/index.php [L,QSA]
-
-RewriteCond %{REQUEST_FILENAME} !-f
-RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule ^api/(.*)$ /api/$1 [L]
+RewriteRule ^api/authors$ /api/authors/index.php [L,QSA]
+RewriteRule ^api/categories$ /api/categories/index.php [L,QSA]
+RewriteRule ^api/quotes$ /api/quotes/index.php [L,QSA]
