@@ -101,7 +101,7 @@
             $query = 'INSERT INTO ' . $this->table . '
                 (quote, author_id, category_id) 
                 VALUES 
-                    (:quote, :author_id, :category_id)';
+                    (:quote, :author_id, :category_id) RETURNING id';
 
             // Prepare statement
             $stmt = $this->conn->prepare($query);
