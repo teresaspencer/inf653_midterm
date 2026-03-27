@@ -1,11 +1,18 @@
 <?php
     class Database {
         // DB Params
-        private $host = 'localhost';
-        private $db_name = 'quotesdb';
-        private $username = 'postgres';
-        private $password = 'postgres';
+        private $host = '';
+        private $db_name = '';
+        private $username = '';
+        private $password = '';
         private $conn;
+
+    public function __construct() {
+        $this->host     = getenv('DB_HOST');
+        $this->db_name  = getenv('DB_NAME');
+        $this->username = getenv('DB_USER');
+        $this->password = getenv('DB_PASSWORD');
+    }
 
         // DB Connect
         public function connect() {
