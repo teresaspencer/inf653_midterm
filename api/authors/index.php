@@ -1,4 +1,9 @@
 <?php
+    if ($method === 'POST') {
+    echo json_encode(array('test' => 'POST reached index.php'));
+    exit();
+}
+    
     header('Access-Control-Allow-Origin: *');
     header('Content-Type: application/json');
     $method = $_SERVER['REQUEST_METHOD'];
