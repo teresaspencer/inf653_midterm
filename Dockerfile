@@ -31,10 +31,6 @@ COPY apache.conf /etc/apache2/sites-available/000-default.conf
 # Enable Apache modules
 RUN a2enmod rewrite
 
-# Disable conflicting MPM modules and enable prefork
-RUN a2dismod mpm_event || true
-RUN a2enmod mpm_prefork
-
 # Suprisingly, I deployed to Render without this!
 # Set Apache to bind to IP address 0.0.0.0
 # RUN echo "Listen 0.0.0.0:80" >> /etc/apache2/apache2.conf
@@ -46,4 +42,4 @@ RUN a2enmod mpm_prefork
 EXPOSE 80
 
 # By default, Apache is started automatically. You can change or customize the startup command if necessary.
-# CMD ["apache2-foreground"]
+CMD ["apache2-foreground"]
