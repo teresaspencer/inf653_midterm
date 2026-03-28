@@ -12,8 +12,6 @@ WORKDIR /var/www/html
 # Copy the current directory contents into the container at /var/www/html
 COPY . /var/www/html
 
-RUN ls -la /var/www/html/
-
 # Install any dependencies your PHP application may need
 # For example, if you're using Composer for dependency management:
 # RUN apt-get update && apt-get install -y \
@@ -31,7 +29,7 @@ RUN docker-php-ext-install pdo_pgsql
 COPY apache.conf /etc/apache2/sites-available/000-default.conf
 
 # Enable Apache modules
-RUN a2enmod rewrite
+RUN a2enmod rewrite headers
 
 # Suprisingly, I deployed to Render without this!
 # Set Apache to bind to IP address 0.0.0.0
