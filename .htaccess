@@ -1,6 +1,6 @@
 RewriteEngine On
 RewriteCond %{REQUEST_METHOD} OPTIONS
-RewriteRule ^(.*)$ - [R=200,L]
+RewriteRule ^(.*)$ - [R=204,L]
 
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
