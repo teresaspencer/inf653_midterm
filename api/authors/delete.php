@@ -14,7 +14,7 @@
     $author = new Author($db);
 
     $data = json_decode(file_get_contents('php://input'));
-    // or: $author->id = isset($_GET['id']) ? $_GET['id'] : die();
+
     if (empty($data->id)) {
         http_response_code(400);
         echo json_encode(['message' => 'id is required']);
