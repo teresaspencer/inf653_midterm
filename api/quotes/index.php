@@ -8,7 +8,7 @@
         header('Access-Control-Allow-Headers: Origin, Accept, Content-Type, X-Requested-With');
         exit();
     }
-/*
+
     if ($method === 'GET') {
         if (isset($_GET['id'])) {
             include 'read_single.php';
@@ -21,5 +21,7 @@
         include 'update.php';
     } elseif ($method === 'DELETE') {
         include 'delete.php';   
+    } else {
+        http_response_code(405;
+        echo json_encode(['message' => 'Method Not Allowed']));
     }
-        */

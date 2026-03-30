@@ -42,6 +42,10 @@
                 $query .= ' WHERE
                     q.category_id = :category_id';
             }
+            
+            // Order results
+            $query .= ' ORDER BY
+                q.id DESC';
 
             // Prepared statement
             $stmt = $this->conn->prepare($query);
@@ -53,10 +57,6 @@
             if(isset($_GET['category_id'])) {
                 $stmt->bindParam(':category_id', $_GET['category_id']);
             }
-
-            // Order results
-            $query .= ' ORDER BY
-                q.id DESC';
 
             // Execute query
             $stmt->execute();
