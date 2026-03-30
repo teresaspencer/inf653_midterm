@@ -9,7 +9,7 @@
         header('Access-Control-Allow-Headers: Origin, Accept, Content-Type, X-Requested-With');
         exit();
     }
-/*
+
     if ($method === 'GET') {
         if (isset($_GET['id'])) {
             include 'read_single.php';
@@ -23,4 +23,3 @@
     } elseif ($method === 'DELETE') {
         include 'delete.php';   
     }
-        */
