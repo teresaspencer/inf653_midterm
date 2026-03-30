@@ -17,7 +17,7 @@
     $data = json_decode(file_get_contents('php://input'));
 
     if(!isset($data->id) || !isset($data->category) || empty($data->category)) {
-        echo json_encode('message' => 'Missing Required Parameters');
+        echo json_encode(array('message' => 'Missing Required Parameters'));
         exit();
     }
 
@@ -27,12 +27,7 @@
 
     // Update Category
     if($category->update()) {
-        echo json_encode(
-            array('id' => $data->id,
-            'category' => $data->category)
-        );
+        echo json_encode(array('id' => $data->id, 'category' => $data->category));
     } else {
-        echo json_encode(
-            array('message' => 'Category Not Updated')
-        );
+        echo json_encode(array('message' => 'Category Not Updated'));
     }
