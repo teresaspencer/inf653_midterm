@@ -26,11 +26,7 @@
     $id = $author->create();
 
     if($id) {
-        echo json_encode(
-            array('id' => $id, 'author' => $data->author)
-        );
+        echo json_encode(array('id' => $id, 'author' => $data->author));
     } else {
-        echo json_encode(
-            array('message' => 'Category Not Created')
-        );
+        echo json_encode(array('message' => 'Category Not Created'));
     }
