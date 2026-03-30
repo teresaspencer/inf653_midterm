@@ -1,0 +1,7 @@
+This has easily been one of the most challenging projects I've encountered in my many years of schooling. Particularly difficult has been the excess of options of services to connect everything.
+I've been mostly unfamiliar with the options and felt overwhelmed trying to figure out what's best to use for this project.
+
+I was finally able to get everything up and running, but the automated tests proved to be an issue. I spent many hours across several days trying to figure out why I couldn't get the tests to run without a timeout warning.
+I posted in the Discord several times for assistance but didn't get any useful help until the day before the assignment was due.
+One helpful classmate pointed out that I was in fact getting good data, but the response time was slow. Another student pointed out the Render location settings and I realized I had forgotted to change those when I set up my databse.
+Since Render doesn't allow location changes after creating the database, I had to completely rebuild from scratch. Thank goodness I kept good notes of my queries to get it reloaded quickly.
