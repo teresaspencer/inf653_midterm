@@ -23,7 +23,10 @@
                 $this->password);
                 $this->conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             } catch(PDOException $e) {
-                echo 'Connection Error: ' . $e->getMessage();
+                error_log('DB connection error: ' . $e->getMessage());
+                http_response_code(500);
+                echo json_encode(['message' => 'Database connection failed']);
+                exit();
             }
             return $this->conn;
         }

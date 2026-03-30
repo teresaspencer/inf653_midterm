@@ -15,6 +15,12 @@
 
     $data = json_decode(file_get_contents('php://input'));
 
+    if(empty($data->id)) {
+        http_response_code(400);
+        echo json_encode(['message' => 'Missing Required Parameters']);
+        exit();
+    }
+
     // Check quote exists
     $quote_check = $db->prepare('SELECT id FROM quotes WHERE id = :id');
     $quote_check->bindParam(':id', $data->id);
@@ -31,5 +37,6 @@
     if($quote->delete()) {
         echo json_encode(array('id' => $data->id));
     } else {
+        http_response_code(404);
         echo json_encode(array('message' => 'Quote Not Deleted'));
     }
